@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="viewport" content="text/html; charset=utf-8" http-equiv="content-type">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}" defer></script>
+    {% block head %}
+    <title>{% block title %}{% endblock %} - Ensembl Database</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div class="container">
+      <div class="cell header-cell">
+        <h1>{% block h1 %}{% endblock %}</h1>
+      </div>
+      <div class="cell navbar-cell">
+        <h2>Navigation</h2>
+        {% block sidebar %}{% endblock %}
+      </div>
+      <div class="cell main-cell">
+        {% block content %}{% endblock %}
+      </div>
+
+      <div class="cell footer-cell">
+        <p>©2018 Université Lyon 1</p>
+      </div>
+    </div>
+  </body>
+</html>

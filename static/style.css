@@ -1,0 +1,91 @@
+/*  PAGE STRUCTURE */
+.container {
+   display: grid;
+   grid-template-areas: "header header header"
+                        "left main main"
+                        "left footer footer";
+   grid-template-rows: auto 3fr auto;
+   grid-template-columns: 20% 50% 30%;
+   grid-row-gap: 1rem;
+}
+.cell {
+   color: black;
+   font-size: 1rem;
+   font-family: Impact, Charcoal, sans-serif;
+   padding: 1rem;
+}
+.header-cell {
+   background: #d6cbd3;
+   text-align: center;
+   grid-area: header;
+   border-radius: 15px;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.navbar-cell {
+   background: #d6cbd3;
+   grid-area: left;
+   border-radius: 15px 15px 0px 0px;
+}
+.main-cell {
+   background: white;
+   grid-area: main;
+   text-align: left;
+}
+.footer-cell {
+   text-align: center;
+   grid-area: footer;
+   font-size: 10px;
+}
+
+
+/* TEXT FORMAT */
+p.error {
+  color: #f14c4c;
+  font-size: 10px;
+  font-weight: bold;
+}
+/* links */
+a:link, a:visited {
+    color: inherit;
+    padding: 10px 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:active {
+    background-color: white;
+    font-weight: bold;
+    color: #eca1a6;
+}
+
+/* tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table.nostyle {
+  background-color: : white
+}
+
+th {
+    background-color: #ada397;
+    height: 50px;
+    color: white;
+}
+
+tr:nth-child(even) {background-color: #bdcebe;}
+/*tr:hover {
+  background-color: #eca1a6;
+  color: white;
+  font-weight: bold;
+}*/
+
+/* FORM */
+input[type=text] {
+ border: 1px solid grey;
+ border-bottom: 1px solid grey;
+}

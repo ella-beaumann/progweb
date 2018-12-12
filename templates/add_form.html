@@ -1,0 +1,55 @@
+<!doctype html>
+
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+
+{% block sidebar %}
+<a href="{{url_for('root')}}">Index</a><br>
+<a href="{{url_for('table_1000_genes')}}">Gene list</a><br>
+<a href="{{url_for('page_de_test')}}"> TEST </a>
+{% endblock %}
+{% block h1 %}
+New entry
+{% endblock %}
+{% block content %}
+  <h2>Enter info about the gene</h2>
+  <br>
+  <form action="{{url_for('new_gene')}}" method="post" name= "add_form">
+    <table>
+      <tr>
+        <td> Gene ID * : <br><p id="gene_id_error" class="error"></p> </td>
+        <td>
+          <input type="text" name="gene_id" class="form_val"/></input>
+        </td>
+      </tr>
+      <tr>
+        <td> Associated gene name :</td>
+        <td>
+          <input type="text" name="a_gene_name" class="form_val"/></input>
+        </td>
+      </tr>
+     <tr> <td>Chromosome * :<br><p id="chr_error" class="error"></p></td> <td>
+       <input type="text" name="chr_name" class="form_val"/></input>
+     </td> </tr>
+     <tr> <td>Band :</td>
+       <td><input type="text" name="band" class="form_val"/></input></td>
+     </tr>
+     <tr> <td>Strand :</td> <td>
+       <input type="radio" name="strand" class="form_val" value="1"/>Sens</input>
+       <br>
+       <input type="radio" name="strand" class="form_val" value="2">Antisens</input>
+     </td> </tr>
+     <tr> <td>Start * : <br><p id="gene_start_error" class="error"></p></td> <td>
+       <input type="text" name="gene_start" class="form_val"/></input>
+     </td> </tr>
+     <tr> <td>End * :<br><p id="gene_end_error" class="error"></p> </td> <td>
+       <input type="text" name="gene_end" class="form_val"/></input>
+     </td> </tr>
+     <tr> <td>Number of transcripts : </td> <td>
+       <input type="text" name="transcript_count" class="form_val"/></input>
+     </td> </tr>
+   </table>
+    <input id="submitbutton" type="submit" disabled="disabled" value="Submit" />
+  </form>
+
+{% endblock %}

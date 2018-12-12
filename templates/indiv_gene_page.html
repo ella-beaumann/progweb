@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}{{ gene_id }}{% endblock %}
+{% block h1 %}Info gène{% endblock %}
+{% block sidebar %}
+<a href="{{url_for('root')}}">Index</a><br>
+<a href="{{url_for('table_1000_genes')}}">Gene list</a><br>
+<a href="{{url_for('page_de_test')}}"> TEST </a>
+{% endblock %}
+{% block content %}
+<h2>{{ gene_id }}</h2>
+
+  <form action="{{url_for('del_gene', id=gene_id)}}" method="post">
+    <input type="button" name="del_{{gene_id}}" value="Delete" onclick="this.form.submit();">
+
+  <table>
+    <tr>
+      {% for desc in gcolnames[1:] %}
+        <th>{{ desc }}</th>
+      {% endfor %}
+    </tr>
+    {% for info in gdata %}
+      <tr>
+        {% for data in info[1:] %}
+          <td style="text-align:center;">{{ data }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+
+  <h3>Transcripts</h3>
+  <table class="table table-dark" style="width:75%">
+    <tr>
+      {% for desc in tcolnames %}
+        <th>{{ desc }}</th>
+      {% endfor %}
+    </tr>
+    {% for info in tdata %}
+      <tr>
+        {% for data in info %}
+          <td style="text-align:center;">{{ data }}</td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
